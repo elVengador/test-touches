@@ -36,7 +36,7 @@ export const handleTouch = (touches: Touch[]): number => {
   console.log("touch", { touches });
   if (touches.length !== 2) return -1;
   const pinchRatio = calculatePinchRatio(touches);
-  if (!checkZoomEvent(touches)) return -1;
+  //   if (!checkZoomEvent(touches)) return -1;
 
   const target = document.getElementById("tuElemento");
   if (!target) throw Error("can not find target");
