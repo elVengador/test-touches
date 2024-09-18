@@ -25,7 +25,7 @@ function App() {
         // ref={elementRef}
         onTouchStart={(e) => {
           console.log("sss");
-          const newTouches = Array.from(e.changedTouches);
+          const newTouches = Array.from(e.touches);
           setTouches([...newTouches]);
           const newRatio = handleTouch(newTouches);
           setRatio(newRatio);
