@@ -37,6 +37,10 @@ export const handleTouch = (touches: Touch[]): number => {
   if (touches.length !== 2) return -1;
   const pinchRatio = calculatePinchRatio(touches);
   if (!checkZoomEvent(touches)) return -1;
+
+  const target = document.getElementById("tuElemento");
+  if (!target) throw Error("can not find target");
+  target.style.transform = `scale(${pinchRatio})`;
   return pinchRatio;
 
   //   applyZoom({ pinchRatio, scale: 1 });
