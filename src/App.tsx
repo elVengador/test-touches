@@ -7,6 +7,7 @@ import { handleTouch } from "./assets/utils";
 function App() {
   // const [count, setCount] = useState(0);
   const [touches, setTouches] = useState<Touch[]>([]);
+  const [ratio, setRatio] = useState(-1);
   return (
     <>
       <div>
@@ -26,10 +27,13 @@ function App() {
           console.log("sss");
           const newTouches = Array.from(e.changedTouches);
           setTouches([...newTouches]);
-          handleTouch(newTouches);
+          const newRatio = handleTouch(newTouches);
+          setRatio(newRatio);
         }}
       >
-        <h2>{touches.length}</h2>
+        <h2>
+          {touches.length}, ratio: {ratio}
+        </h2>
         <ul style={{ listStyle: "none", padding: "0px" }}>
           {touches.map((c, i) => (
             <li key={i} style={{ borderBottom: "solid 2px royalBlue" }}>

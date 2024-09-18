@@ -1,7 +1,7 @@
 import { Touch } from "react";
 
 type PinchRatio = number;
-type Scale = number;
+// type Scale = number;
 
 // Calculate the distance between two finger positions
 export const calculatePinchRatio = (touches: Touch[]): PinchRatio => {
@@ -22,27 +22,28 @@ export const checkZoomEvent = (touches: Touch[]): boolean => {
 };
 
 // Apply a zoom effect to an element
-type ZoomInput = {
-  pinchRatio: PinchRatio;
-  scale: Scale;
-};
-export const applyZoom = ({ pinchRatio, scale }: ZoomInput): void => {
-  // Use this function to update the element's CSS transformation
-  // (For example, using `element.style.transform`or `element.style.scale`)
-};
+// type ZoomInput = {
+//   pinchRatio: PinchRatio;
+//   scale: Scale;
+// };
+// export const applyZoom = ({ pinchRatio, scale }: ZoomInput): void => {
+//   // Use this function to update the element's CSS transformation
+//   // (For example, using `element.style.transform`or `element.style.scale`)
+// };
 
 // Handle touch events and apply a zoom effect
-export const handleTouch = (touches: Touch[]): void => {
+export const handleTouch = (touches: Touch[]): number => {
   console.log("touch", { touches });
-  if (touches.length !== 2) return;
+  if (touches.length !== 2) return -1;
   const pinchRatio = calculatePinchRatio(touches);
-  if (!checkZoomEvent(touches)) return;
+  if (!checkZoomEvent(touches)) return -1;
+  return pinchRatio;
 
-  applyZoom({ pinchRatio, scale: 1 });
+  //   applyZoom({ pinchRatio, scale: 1 });
 
   // After the user finishes pinching or zooming...
-  setTimeout(() => {
-    // Reset the CSS transformation to its original value
-    applyZoom({ pinchRatio: 1, scale: 1 });
-  }, 10); // Wait for a tiny bit of time before snapping back
+  //   setTimeout(() => {
+  //     // Reset the CSS transformation to its original value
+  //     applyZoom({ pinchRatio: 1, scale: 1 });
+  //   }, 10); // Wait for a tiny bit of time before snapping back
 };
