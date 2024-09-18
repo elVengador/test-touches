@@ -18,7 +18,7 @@ function App() {
         setRatio(newRatio);
       }}
     >
-      <h1>Test touches</h1>
+      <h1>Test Touches</h1>
       <div
         className="card"
 
@@ -44,13 +44,8 @@ function App() {
             </li>
           ))}
         </ul>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <p>touch to see the touch start events</p>
     </div>
   );
 }
